@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import Header from "@/components/Header";
 
 const pretendard = localFont({
   src: "./PretendardVariable.woff2",
@@ -18,7 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${pretendard.className}`}>{children}</body>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
+      <body className={`${pretendard.className}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
