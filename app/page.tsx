@@ -103,13 +103,15 @@ const HomePage: React.FC = () => {
   return (
     <>
       <main className="pt-16">
-        <section className="flex h-[50vh] items-center justify-center text-center">
+        <section className="flex h-[20vh] items-center justify-center text-center lg:h-[50vh]">
           <div>
-            <h1 className="mb-4 text-6xl font-extrabold text-[#333]">MINGYU</h1>
-            <p className="text-2xl font-semibold text-gray-600">
+            <h1 className="mb-4 text-3xl font-extrabold text-[#333] lg:text-6xl">
+              MINGYU
+            </h1>
+            <p className="text-lg font-semibold text-gray-600 lg:text-xl">
               안녕하세요. 프론트엔드 개발자 성민규입니다.
             </p>
-            <p className="text-md mt-2 text-gray-500">
+            <p className="lg:text-md mt-2 text-sm text-gray-500">
               간단한 코드를 추구하며 사용자가 중심이 되는 개발을 합니다.
             </p>
           </div>
@@ -133,8 +135,16 @@ const HomePage: React.FC = () => {
 
         {/* --------------------- ABOUT ME SECTION --------------------- */}
         <Section id="about">
-          <div className="grid gap-12 md:grid-cols-3">
-            <Image src={profile} alt={"Soyoung Lee"} width={300} />
+          <div className="grid gap-8 md:gap-12 lg:grid-cols-3">
+            <div className="flex justify-center lg:justify-start">
+              <Image
+                src={profile}
+                alt={"Mingyu Seong"}
+                width={300}
+                height={300}
+                className="w-40 rounded-lg object-cover md:w-60 lg:w-72"
+              />
+            </div>
 
             <div>
               <h3 className="mb-4 text-2xl font-semibold text-[#333]">
