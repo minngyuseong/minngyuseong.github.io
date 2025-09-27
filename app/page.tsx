@@ -1,22 +1,8 @@
-import Footer from "../components/Footer"
-import Head from "next/head"
 import React from "react"
 // 정의한 타입 불러오기
 import Image from "next/image"
 import AutoplaySwiper from "@/components/AutoplaySwiper"
-
-// --- 데이터 구조 (WorkItem, ProjectItem 타입 사용) ---
-const SKILLS: string[] = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "FIGMA",
-  "Bootstrap",
-  "Photoshop",
-  "Illustrator",
-  "Adobe XD",
-  "jQuery",
-]
+import profile from "@/public/profile.png"
 
 // const WORK_LIST: WorkItem[] = [
 //   {
@@ -44,8 +30,12 @@ const TECH_STACK = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   },
   {
-    name: "JavaScript",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    name: "Vercel",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+  },
+  {
+    name: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   },
   {
     name: "shadcn/ui",
@@ -53,7 +43,7 @@ const TECH_STACK = [
   },
   {
     name: "Tailwind CSS",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
   },
   {
     name: "React Native",
@@ -61,7 +51,7 @@ const TECH_STACK = [
   },
   {
     name: "NestJS",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg",
   },
   {
     name: "Prisma",
@@ -71,22 +61,40 @@ const TECH_STACK = [
     name: "GitHub",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
+  {
+    name: "Figma",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  },
+  {
+    name: "Notion",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg",
+  },
+  {
+    name: "Bruno",
+    icon: "https://bestofjs.org/logos/bruno.svg",
+  },
+  {
+    name: "Postman",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+  },
+  {
+    name: "Android Studio",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
+  },
 ]
 
 // --- Section 컴포넌트: Props에 타입 정의 ---
 interface SectionProps {
   id: string
-  title: string
   children: React.ReactNode // 자식 요소의 타입
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, children }) => (
+const Section: React.FC<SectionProps> = ({ id, children }) => (
   <section
     id={id}
     className="mx-auto min-h-screen max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
   >
-    <h2 className="section-title">{title}</h2>
-    <div className="mt-10">{children}</div>
+    {children}
   </section>
 )
 
@@ -94,22 +102,15 @@ const Section: React.FC<SectionProps> = ({ id, title, children }) => (
 const HomePage: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>이소영 | 웹 포트폴리오 | Soyoung&apos;s Web Portfolio</title>
-      </Head>
-
-      {/* --------------------- HERO SECTION --------------------- */}
       <main className="pt-16">
-        <section className="flex h-screen items-center justify-center text-center">
+        <section className="flex h-[50vh] items-center justify-center text-center">
           <div>
-            <h1 className="mb-4 text-6xl font-extrabold text-[#333]">
-              MINGYU&apos;S PORTFOLIO
-            </h1>
-            <p className="text-xl text-gray-600">
-              안녕하세요. 저는 프론트엔드 개발자 성민규입니다.
+            <h1 className="mb-4 text-6xl font-extrabold text-[#333]">MINGYU</h1>
+            <p className="text-2xl font-semibold text-gray-600">
+              안녕하세요. 프론트엔드 개발자 성민규입니다.
             </p>
-            <p className="mt-2 text-lg text-gray-500">
-              어떠한 사용자에게든 편리하고 좋은 웹 페이지를 만듭니다!
+            <p className="text-md mt-2 text-gray-500">
+              간단한 코드를 추구하며 사용자가 중심이 되는 개발을 합니다.
             </p>
           </div>
         </section>
@@ -117,13 +118,13 @@ const HomePage: React.FC = () => {
           {TECH_STACK.map((tech, index) => (
             <div
               key={index}
-              className="flex h-24 w-full items-center justify-center rounded-lg"
+              className="flex h-40 w-full items-center justify-center rounded-lg"
             >
               <Image
                 src={tech.icon}
                 alt={tech.name}
-                width={48}
-                height={48}
+                width={80}
+                height={80}
                 title={tech.name}
               />
             </div>
@@ -131,55 +132,82 @@ const HomePage: React.FC = () => {
         </AutoplaySwiper>
 
         {/* --------------------- ABOUT ME SECTION --------------------- */}
-        <Section id="about" title="ABOUT ME">
-          <div className="grid gap-12 md:grid-cols-2">
-            {/* 1. 자기소개 및 경력 */}
+        <Section id="about">
+          <div className="grid gap-12 md:grid-cols-3">
+            <Image src={profile} alt={"Soyoung Lee"} width={300} />
+
             <div>
               <h3 className="mb-4 text-2xl font-semibold text-[#333]">
-                Soyoung Lee
+                성민규
               </h3>
               <p className="mb-6 leading-relaxed">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum
-                quaerat ducimus, sed odio incidunt labore qui totam voluptas
-                consequatur numquam sunt ullam ut laboriosam delectus unde quis
-                mollitia illo amet!
+                안녕하세요, 프론트엔드 개발자 성민규입니다.
               </p>
               <p className="border-l-4 border-[#333] pl-4 leading-relaxed text-gray-600 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptate sapiente accusantium ad tenetur non vel sunt minus
-                impedit quia aut, consequatur tempore minima fugit? Repellendus
-                laboriosam odio deleniti ullam totam?
+                사용자 경험을 최우선으로 생각하며, 효율적이고 직관적인 UI/UX를
+                구현하는 데 집중하고 있습니다.
               </p>
 
-              <h4 className="mt-8 mb-3 text-xl font-semibold">
-                WORK & EDUCATION
-              </h4>
-              <ul className="space-y-1 text-sm text-gray-700">
-                {/* <li>**2025.01 - NOW:** 테크랩스</li>
-                <li>**2019.02 - 2023.11:** (주)아이엠오</li>
+              <h4 className="mt-8 mb-3 text-xl font-semibold">경력</h4>
+              <ul className="text-md space-y-1 text-gray-700">
                 <li>
-                  **2018.06 - 2018.11:** 스마트기기 UX/UI디자인 수료 -
-                  그린컴퓨터아카데미
-                </li> */}
+                  2024.06 - 2024.12&nbsp;&nbsp;&nbsp;&nbsp; 에스엠베이커스 인턴
+                </li>
+                <li>
+                  2025.07 - 2025.08&nbsp;&nbsp;&nbsp;&nbsp; 타이가글로벌 인턴
+                </li>
+              </ul>
+
+              <h4 className="mt-8 mb-3 text-xl font-semibold">학력</h4>
+              <ul className="text-md space-y-1 text-gray-700">
+                <li>
+                  2020.03 - 2024.02&nbsp;&nbsp;&nbsp;&nbsp;숭실대학교 컴퓨터학부
+                </li>
+                <li>
+                  2024.03 - 2026.02&nbsp;&nbsp;&nbsp;&nbsp;성균관대학교
+                  소프트웨어학과
+                </li>
+              </ul>
+
+              <h4 className="mt-8 mb-3 text-xl font-semibold">수상</h4>
+              <ul className="text-md space-y-1 text-gray-700">
+                <li>
+                  2025.05&nbsp;&nbsp;&nbsp;&nbsp;성균관대학교 S-TOP 최우수상
+                </li>
+              </ul>
+
+              <h4 className="mt-8 mb-3 text-xl font-semibold">프로젝트</h4>
+              <ul className="text-md space-y-1 text-gray-700">
+                <li>
+                  2024.06 - 2024.12 (7개월)&nbsp;&nbsp;&nbsp;&nbsp;피트니스 센터
+                  통합 플랫폼
+                </li>
+                <li>
+                  2024.09 -
+                  현재&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(12개월)&nbsp;&nbsp;&nbsp;교내
+                  강의 지원 웹페이지
+                </li>
+                <li>
+                  2025.07 - 2025.08 (2개월)&nbsp;&nbsp;&nbsp;&nbsp;IoT 기기
+                  모바일앱
+                </li>
+                <li>
+                  2025.08 - 2025.09 (2개월)&nbsp;&nbsp;&nbsp;주점 예약 플랫폼
+                </li>
               </ul>
             </div>
 
-            {/* 2. 스킬셋 */}
             <div>
               <h4 className="mb-4 text-xl font-semibold text-[#333]">SKILLS</h4>
               <div className="flex flex-wrap gap-3">
-                {SKILLS.map(
-                  (
-                    skill: string, // skill에 string 타입 명시
-                  ) => (
-                    <span
-                      key={skill}
-                      className="rounded-full bg-[#e0e0e0] px-4 py-2 text-sm font-medium text-gray-800"
-                    >
-                      {skill}
-                    </span>
-                  ),
-                )}
+                {TECH_STACK.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="rounded-full bg-[#e0e0e0] px-4 py-2 text-sm font-medium text-gray-800"
+                  >
+                    {tech.name}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -245,8 +273,6 @@ const HomePage: React.FC = () => {
           </div>
         </Section> */}
       </main>
-
-      <Footer />
     </>
   )
 }
