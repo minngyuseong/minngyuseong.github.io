@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { NavItem } from "../types";
+import Link from "next/link"
+import { NavItem } from "../types"
 
 const navItems: NavItem[] = [
   { name: "ABOUT ME", href: "#about" },
   { name: "WORK", href: "#work" },
   { name: "PROJECT", href: "#project" },
   { name: "CONTACT", href: "#contact" },
-];
+]
 
 export default function Header() {
   return (
@@ -36,5 +36,5 @@ export default function Header() {
         </nav>
       </div>
     </header>
-  );
+  )
 }

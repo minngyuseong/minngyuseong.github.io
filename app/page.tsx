@@ -1,9 +1,9 @@
-import Footer from "../components/Footer";
-import Head from "next/head";
-import React from "react";
-import { WorkItem, ProjectItem } from "../types"; // 정의한 타입 불러오기
-import Image from "next/image";
-import AutoplaySwiper from "@/components/AutoplaySwiper";
+import Footer from "../components/Footer"
+import Head from "next/head"
+import React from "react"
+// 정의한 타입 불러오기
+import Image from "next/image"
+import AutoplaySwiper from "@/components/AutoplaySwiper"
 
 // --- 데이터 구조 (WorkItem, ProjectItem 타입 사용) ---
 const SKILLS: string[] = [
@@ -16,27 +16,27 @@ const SKILLS: string[] = [
   "Illustrator",
   "Adobe XD",
   "jQuery",
-];
+]
 
-const WORK_LIST: WorkItem[] = [
-  {
-    title: "병원 홈페이지 리뉴얼",
-    category: "Web | 퍼블리싱 · SEO · 반응형",
-    description: "니즈를 파악한 반응형 홈페이지 구축.",
-  },
-  {
-    title: "문자팝 웹 사이트",
-    category: "Web | 디자인 · 퍼블리싱 · 유지보수",
-    description: "사용자 중심의 UI/UX 디자인 적용.",
-  },
-  //... 추가 작업 목록
-];
+// const WORK_LIST: WorkItem[] = [
+//   {
+//     title: "병원 홈페이지 리뉴얼",
+//     category: "Web | 퍼블리싱 · SEO · 반응형",
+//     description: "니즈를 파악한 반응형 홈페이지 구축.",
+//   },
+//   {
+//     title: "문자팝 웹 사이트",
+//     category: "Web | 디자인 · 퍼블리싱 · 유지보수",
+//     description: "사용자 중심의 UI/UX 디자인 적용.",
+//   },
+//   //... 추가 작업 목록
+// ]
 
-const PROJECT_LIST: ProjectItem[] = [
-  { name: "PANORAMA", hashtags: ["#3D", "#CSS", "#JS", "#인터랙티브"] },
-  { name: "SORO", hashtags: ["#GSAP", "#Clone", "#인터랙티브", "#반응형"] },
-  //... 추가 프로젝트 목록
-];
+// const PROJECT_LIST: ProjectItem[] = [
+//   { name: "PANORAMA", hashtags: ["#3D", "#CSS", "#JS", "#인터랙티브"] },
+//   { name: "SORO", hashtags: ["#GSAP", "#Clone", "#인터랙티브", "#반응형"] },
+//   //... 추가 프로젝트 목록
+// ]
 
 const TECH_STACK = [
   {
@@ -71,13 +71,13 @@ const TECH_STACK = [
     name: "GitHub",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
-];
+]
 
 // --- Section 컴포넌트: Props에 타입 정의 ---
 interface SectionProps {
-  id: string;
-  title: string;
-  children: React.ReactNode; // 자식 요소의 타입
+  id: string
+  title: string
+  children: React.ReactNode // 자식 요소의 타입
 }
 
 const Section: React.FC<SectionProps> = ({ id, title, children }) => (
@@ -88,7 +88,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children }) => (
     <h2 className="section-title">{title}</h2>
     <div className="mt-10">{children}</div>
   </section>
-);
+)
 
 // --- 메인 함수 컴포넌트 ---
 const HomePage: React.FC = () => {
@@ -248,7 +248,7 @@ const HomePage: React.FC = () => {
 
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

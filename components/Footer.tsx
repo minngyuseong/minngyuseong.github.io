@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-"use client";
+"use client"
 export default function Footer() {
-  const currentYear: number = new Date().getFullYear(); // currentYear에 number 타입 명시
+  const currentYear: number = new Date().getFullYear() // currentYear에 number 타입 명시
 
   return (
     <footer className="border-t border-gray-200 bg-[#f7f7f7] py-8">
@@ -28,5 +28,5 @@ export default function Footer() {
         </button>
       </div>
     </footer>
-  );
+  )
 }

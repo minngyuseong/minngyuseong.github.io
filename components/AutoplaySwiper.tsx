@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import React from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
 
-import "swiper/css";
-import "swiper/css/autoplay";
+import "swiper/css"
+import "swiper/css/autoplay"
 
 interface AutoplaySwiperProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function AutoplaySwiper({ children }: AutoplaySwiperProps) {
@@ -29,5 +29,5 @@ export default function AutoplaySwiper({ children }: AutoplaySwiperProps) {
         ))}
       </Swiper>
     </div>
-  );
+  )
 }
